@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				margin: 0;
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			img {
+				vertical-align: top;
+			}
+			a {
+				text-decoration: none;
+			}
+			#list {
+				overflow: hidden;
+				width: 440px;
+			}
+			#list li {
+				position: relative;
+				float: left;
+				width: 200px;
+				height: 120px;
+				margin: 10px 10px;
+				overflow: hidden;
+			}
+			#list li img {
+				width: 200px;
+				height: 120px;
+			}
+			#list li div {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 200px;
+				height: 240px;
+			}
+		</style>
+		<script src="../js/aTween.js"></script>
+		<script>
+			window.onload = function() {
+				var list = document.getElementById('list');
+				var timer = 0;
+				var div = list.querySelectorAll('div');
+				var imgH = css(div[0].parentNode,"height");
+				var arr = [];
+				for(var i = 0; i < div.length; i++) {
+					arr[i] = div[i];
+				}
+				setInterval(function() {
+					var n = parseInt(Math.random()*8)+1;
+					arr.sort(function() {
+						return .5 - Math.random();
+					});
+					//fn(div[n]);
+					for(var i = 0; i < n; i++) {
+						fn(arr[i]);
+					}
+				},1000);
+				
+//				setTimeout(function(){
+//					fn(div[0]);
+//				},1000);
+				function fn(ele) {
+					var top = css(ele,"top");
+					if(top == 0) {
+						mTween(ele,{top:-imgH},500,'linear');
+					} else {
+						mTween(ele,{top: 0},500,'linear');
+					}
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<div>
+					<a href="#">
+						<img src="../img/img1.gif" />
+					</a>
+					<a href="#">
+						<img src="../img/img2.gif" />
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="../img/img3.gif" />
+					</a>
+					<a href="#">
+						<img src="../img/img4.gif" />
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="../img/img5.gif" />
+					</a>
+					<a href="#">
+						<img src="../img/img6.gif" />
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="../img/img7.gif" />
+					</a>
+					<a href="#">
+						<img src="../img/img8.gif" />
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="../img/img9.gif" />
+					</a>
+					<a href="#">
+						<img src="../img/img1.gif" />
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="../img/img2.gif" />
+					</a>
+					<a href="#">
+						<img src="../img/img3.gif" />
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="../img/img4.gif" />
+					</a>
+					<a href="#">
+						<img src="../img/img5.gif" />
+					</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="../img/img6.gif" />
+					</a>
+					<a href="#">
+						<img src="../img/img7.gif" />
+					</a>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>
